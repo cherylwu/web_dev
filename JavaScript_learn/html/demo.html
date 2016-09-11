@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+
+<body>
+    <h1>What To learn</h1>
+    <p title="Dream List">Just keep on learning something or one thing.</p>
+    <ul id="learning">
+        <li>JavaScript</li>
+        <li>Linux</li>
+        <li>Oracle</li>
+        <li>LoadRunner</li>
+        <li>Java</li>
+        <p>a</p>
+    </ul>
+    <script>
+        //alert(typeof document.getElementById("learning"));
+        //alert(document.getElementsByTagName("li").length);
+        //for(var k =0; k <document.getElementsByTagName("li").length;k++){
+        //    alert(typeof document.getElementsByTagName("li")[k]);
+        //}
+        var learning = document.getElementById("learning");
+        var items    = learning.getElementsByTagName("*");
+        alert(items.length);
+        //for(var k=0; k <items.length; k++){
+            //alert(typeof items[k]);
+       // }
+
+        function getElementsByClassName(node, classname){
+            if(node.getElementsByClassName){
+                return node.getElementsByClassName(classname);
+            }else{
+                var item = node.getElementsByTagName("*");
+                var results = new Array();
+                for(var k =0; k <item.length; k++){
+                    if(item[k].className.indexOf(classname) != -1){
+                        results[results.length] = item[k];
+                    }
+                }
+            }
+        }
+
+        function testAttribute(node){
+            var paras = document.getElementsByTagName(node);
+            if(paras.length > 0){
+                for(var i = 0; i<paras.length; i++){
+                    alert(paras[i].getAttribute("title"));
+                    paras[i].setAttribute("title","go_on"+i);
+                    alert("Attribute: " + paras[i].getAttribute("title"));
+                }
+            }
+        }
+
+        testAttribute("h1");
+
+
+    </script>
+    <script src="../demo.js"></script>
+</body>
+
+</html>
